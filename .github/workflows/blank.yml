@@ -1,0 +1,23 @@
+name: Check PR Title
+
+on:
+  pull_request:
+    types: [opened, edited, synchronize]
+
+jobs:
+  pr-title-check:
+    # Only run if the PR actor is exactly "Testing"
+    if: github.actor == 'renovate[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - name: PR Title Validation
+        run: |
+          echo "Actor: ${{ github.actor }}"
+          echo "PR Title: ${{ github.event.pull_request.title }}"
+
+          PR_TITLE="${{ github.event.pull_request.title }}"
+
+          BASE_REGEX="^(feat|fix|docs|style|refactor|perf|test|build|ci|chore|revert|deps)(\\([a-zA-Z0-9_-]+\\))?:\\ [A-Za-z0-9@/ ,'.\\-]+$"
+          TICKET_REGEX="^(feat|fix|docs|style|refactor|perf|test|build|ci|chore|revert|deps)(\\([a-zA-Z0-9_-]+\\))?:\\ [A-Za-z0-9@/ ,'.\\-]+\\ [A-Z]+-[0-9]+$"
+
+          if [[ ! "$PR_T_]()]()
