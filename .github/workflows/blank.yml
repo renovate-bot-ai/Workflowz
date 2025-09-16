@@ -8,7 +8,7 @@ on:
 jobs:
   pr-title-check:
     # allowlist using contains(array, value)
-    if: contains(fromJSON('["renovate[bot]","Testing","LukeSymons"]'), github.actor)
+    if: contains(fromJSON('["renovate","Testing","LukeSymons"]'), github.actor)
     runs-on: ubuntu-latest
     steps:
  
