@@ -7,9 +7,11 @@ on:
 
 jobs:
   pr-title-check:
+    # allowlist using contains(array, value)
+    if: contains(fromJSON('["renovate","Testing"]'), github.actor)
     runs-on: ubuntu-latest
     steps:
- 
+
 
       - name: PR Title Validation
         shell: bash
