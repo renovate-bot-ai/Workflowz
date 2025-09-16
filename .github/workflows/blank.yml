@@ -12,7 +12,7 @@ jobs:
     steps:
       - name: PR Title Validation
         run: |
-          echo "Actor: ${{ github.actor }}"
+          echo "Actor-P: ${{ github.actor }}"
           echo "PR Title: ${{ github.event.pull_request.title }}"
 
           PR_TITLE="${{ github.event.pull_request.title }}"
