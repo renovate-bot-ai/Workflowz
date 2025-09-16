@@ -4,13 +4,19 @@ on:
   pull_request:
     types: [opened, edited, synchronize]
 
+permissions:
+  contents: read
+  pull-requests: read
 
 jobs:
   pr-title-check:
     # allowlist using contains(array, value)
-    if: contains(fromJSON('["renovate","Testing","LukeSymons"]'), github.actor)
+    if: contains(fromJSON('["renovate[bot]","Testing","LukeSymons"]'), github.actor)
     runs-on: ubuntu-latest
     steps:
+      - name: Echo actor
+        run: echo "Actor allowed: ${{ github.actor }}"
+
       - name: PR Title Validation
         shell: bash
         run: |
